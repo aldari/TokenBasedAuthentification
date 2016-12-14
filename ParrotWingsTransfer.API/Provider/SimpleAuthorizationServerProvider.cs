@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using ParrotWingsTransfer.API.Models;
+using ParrotWingsTransfer.EFDataAccess;
 
 namespace ParrotWingsTransfer.API.Provider
 {

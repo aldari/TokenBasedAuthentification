@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using ParrotWingsTransfer.API.Models;
+using ParrotWingsTransfer.EFDataAccess;
 
 namespace ParrotWingsTransfer.API.Controllers
 {
