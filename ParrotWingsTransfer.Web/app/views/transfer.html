@@ -1,0 +1,28 @@
+﻿<h1>Transfer</h1>
+
+<form name="transferForm" novalidate>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Full User Name of Correspondent</label>
+                <pre>Model: {{selectedUser | json}}</pre>
+                <input type="text" ng-model="selectedUser" placeholder="User Full Name"
+                       typeahead-input-formatter="formatUser($model)"
+                       uib-typeahead="user as user.name for user in getUser($viewValue)"
+                       typeahead-loading="loadingUsers"
+                       typeahead-no-results="noResults" class="form-control">
+                <i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+                <div ng-show="noResults">
+                    <i class="glyphicon glyphicon-remove"></i> No Results Found
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="text" ng-model="transfer.amount" class="form-control" required placeholder="0" />
+                <div class="text-danger" ng-show="transferForm.transfer.amount.$error.required && transferForm.amount.$dirty">Please enter amount.</div>
+            </div>
+            <button class="btn btn-default" ng-click="postTransfer(transfer)">Transfer</button>
+            <div style="color:red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>
+        </div>
+    </div>
+</form>

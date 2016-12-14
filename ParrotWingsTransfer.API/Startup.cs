@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Reflection;
 using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
+using Ninject;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using ParrotWingsTransfer.API;
 using ParrotWingsTransfer.API.Provider;
@@ -19,7 +23,16 @@ namespace ParrotWingsTransfer.API
 
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
-            app.UseWebApi(config);
+            //app.UseWebApi(config);
+
+            app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+        }
+
+        private static StandardKernel CreateKernel()
+        {
+            var kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
+            return kernel;
         }
 
         public void ConfigureOAuth(IAppBuilder app)

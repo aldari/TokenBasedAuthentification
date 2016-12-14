@@ -20,6 +20,7 @@
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
                     <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/transfer">Transfer</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a href="#/orders">My Orders</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
                     <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
@@ -28,10 +29,12 @@
             </div>
         </div>
     </div>
-    <div class="container" style="padding-top: 50px;">
-        <div data-ng-view="">
+<div class="container" style="padding-top: 50px;">
+    <div class="row">
+        <div data-ng-view="" class="col-md-12">
         </div>
     </div>
+</div>
     <hr />
     <div id="footer">
         <div class="container">
@@ -46,8 +49,12 @@
         </div>
     </div>
     <!-- 3rd party libraries -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.1/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>
     <!-- Load app main script -->
@@ -62,5 +69,6 @@
     <script src="app/controllers/loginController.js"></script>
     <script src="app/controllers/signupController.js"></script>
     <script src="app/controllers/ordersController.js"></script>
+    <script src="app/controllers/transferController.js"></script>
 </body>
 </html>

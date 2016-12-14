@@ -23,8 +23,8 @@ namespace ParrotWingsTransfer.EFDataAccess.Transfer.Command
                 throw new ArgumentException("Wrong User");
 
             var sum =
-                DbContext.Transactions.Where(x => x.CreditAccount == user.Account || x.DebitAccount == user.Account)
-                    .Sum(x => (x.DebitAccount == user.Account) ? x.Amount : -x.Amount);
+                DbContext.Transactions.Where(x => x.CreditAccount.Id == user.Account.Id || x.DebitAccount.Id == user.Account.Id)
+                    .Sum(x => (x.DebitAccount.Id == user.Account.Id) ? x.Amount : -x.Amount);
 
             if (sum - command.Amount >=0)
                 DbContext.Transactions.Add(new AccountTransaction { TransDate = DateTime.Now, Amount = 100, CreditAccount = user.Account, DebitAccount = destinationUser.Account });

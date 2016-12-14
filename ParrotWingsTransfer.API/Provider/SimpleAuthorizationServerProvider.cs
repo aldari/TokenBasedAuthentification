@@ -21,20 +21,23 @@ namespace ParrotWingsTransfer.API.Provider
 
             using (AuthRepository _repo = new AuthRepository())
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+                var user = await _repo.FindUser(context.UserName, context.Password);
 
                 if (user == null)
                 {
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+
+
+                ClaimsIdentity identity = await _repo.GenerateUserIdentityAsync(user, OAuthDefaults.AuthenticationType);
+
+                //var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+                identity.AddClaim(new Claim("sub", context.UserName));
+                identity.AddClaim(new Claim("role", "user"));
+
+                context.Validated(identity);
             }
-
-            var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim("sub", context.UserName));
-            identity.AddClaim(new Claim("role", "user"));
-
-            context.Validated(identity);
 
         }
     }
