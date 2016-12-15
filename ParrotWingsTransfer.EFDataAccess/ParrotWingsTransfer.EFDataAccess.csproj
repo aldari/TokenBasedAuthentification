@@ -103,6 +103,7 @@
     <Compile Include="Transfer\Domain\ApplicationUser.cs" />
     <Compile Include="Transfer\Query\GetTemplateMatchNamesQuery.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParrotWingsTransfer.CqsDataModel\ParrotWingsTransfer.CqsDataModel.csproj">
@@ -118,6 +119,9 @@
     <EmbeddedResource Include="Migrations\201612140616159_init.resx">
       <DependentUpon>201612140616159_init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Query.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

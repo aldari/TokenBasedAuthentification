@@ -14,9 +14,6 @@ app.controller('transferController', ['$scope', '$http', function ($scope, $http
     }
 
     $scope.postTransfer = function (transfer) {
-      console.log($scope.selectedUser);
-      console.log(transfer);
-
         //if (!$scope.transferForm.$invalid && $scope.transferForm.$dirty) {
             var serviceBase = 'http://localhost:55452';
             $http({
@@ -34,5 +31,5 @@ app.controller('transferController', ['$scope', '$http', function ($scope, $http
         return $http.get(serviceBase + '/api/testusername/').then(function (response) {
             console.log(response.data);
         });
-    
+
 }]);

@@ -1,0 +1,55 @@
+<h1>﻿History</h1>
+
+<form name="historyForm" novalidation>
+  <!-- <div class="form-group">
+      <label>Account</label>
+      <select ng-model="filter.correspondent" class="form-control"
+              ng-options="item.id as item.name for item in users">
+          <option value="">Select Account</option>
+      </select>
+  </div> -->
+  <div class="form-group">
+      <label>username</label>
+      <input type="text" ng-model="filter.username" class="form-control" />
+      <!-- <div class="text-danger" ng-show="historyForm.filter.username.$error.required && transferForm.username.$dirty">Please enter amount.</div> -->
+  </div>
+  <div class="form-group">
+      <label>amountmax</label>
+      <input type="text" ng-model="filter.amountmax" class="form-control" />
+      <!-- <div class="text-danger" ng-show="historyForm.filter.amountmax.$error.required && transferForm.amountmax.$dirty">Please enter amount.</div> -->
+  </div>
+  <div class="form-group">
+      <label>amountmin</label>
+      <input type="text" ng-model="filter.amountmin" class="form-control" />
+      <!-- <div class="text-danger" ng-show="historyForm.filter.amountmin.$error.required && transferForm.amountmin.$dirty">Please enter amount.</div> -->
+  </div>
+  <div class="form-group">
+      <label>datemin</label>
+      <input type="text" ng-model="filter.datemin" class="form-control" />
+      <!-- <div class="text-danger" ng-show="historyForm.filter.datemin.$error.required && transferForm.datemin.$dirty">Please enter amount.</div> -->
+  </div>
+  <div class="form-group">
+      <label>datemax</label>
+      <input type="text" ng-model="filter.datemax" class="form-control" />
+      <!-- <div class="text-danger" ng-show="historyForm.filter.datemax.$error.required && transferForm.datemax.$dirty">Please enter amount.</div> -->
+  </div>
+  <button class="btn btn-default" ng-click="makerequest(filter)">Поиск</button>
+  <div style="color:red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>
+</form>
+
+<!-- <table class="table table-condensed table-hover">
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="item in history">
+      <td>{{item.id}}</td>
+      <td>{{item.date | date }}</td>
+      <td>{{item.amount}}</td>
+      <td>{{item.debitAccount}}</td>
+      <td>{{item.creditAccount}}</td>
+    </tr>
+</table> -->
