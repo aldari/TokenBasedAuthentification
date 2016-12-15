@@ -10,7 +10,8 @@ app.controller('historyController', ['$scope', '$http', 'historyService', functi
     $http({
     url: 'http://localhost:55452/'+'api/history',
     method: "GET",
-    params: { 'username': filter.username, 'amountmax': filter.amountmax, 'amountmin': filter.amountmin, 'datemin': filter.datemin, 'datemax': filter.datemax}
+    //params: { username: filter.username, amountmax: filter.amountmax, amountmin: filter.amountmin, datemin: filter.datemin, datemax: filter.datemax}
+    params: { username: 'undefined', amountmax: 'undefined', amountmin: 'undefined', datemin: 'undefined', datemax: 'undefined' }
     });
 
   }

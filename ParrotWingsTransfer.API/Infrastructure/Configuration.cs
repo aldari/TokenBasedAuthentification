@@ -23,6 +23,7 @@ namespace ParrotWingsTransfer.API.Infrastructure
 
             // Queries
             Bind<IGetTemplateMatchNamesQuery>().To<GetTemplateMatchNamesQuery>().InTransientScope();
+            Bind<IGetHistoryItemsQuery>().To<GetHistoryItemsQuery>().InTransientScope();
 
             // Commands
             Bind<ICommandHandler<AddTransactionCommand>>().To<AddTransactionCommandHandler>().InTransientScope();
