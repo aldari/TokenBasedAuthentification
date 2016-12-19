@@ -25,11 +25,4 @@ app.controller('transferController', ['$scope', '$http', function ($scope, $http
             });
         //}
     }
-
-
-        var serviceBase = 'http://localhost:55452';
-        return $http.get(serviceBase + '/api/testusername/').then(function (response) {
-            console.log(response.data);
-        });
-
 }]);

@@ -95,7 +95,6 @@
       <DependentUpon>201612140616159_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transfer\Command\AddTransactionCommandHandler.cs" />
     <Compile Include="Transfer\Domain\Account.cs" />

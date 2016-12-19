@@ -8,16 +8,17 @@ app.controller('loginController', ['$scope', '$location', 'authService', functio
 
     $scope.message = "";
 
+
     $scope.login = function () {
+      $scope.$broadcast('show-errors-check-validity');
+      if ($scope.loginForm.$invalid) { return; }
 
-        authService.login($scope.loginData).then(function (response) {
-
-            $location.path('/orders');
-
-        },
-         function (err) {
-             $scope.message = err.error_description;
-         });
+      authService.login($scope.loginData).then(function (response) {
+          $location.path('/transfer');
+      },
+      function (err) {
+          $scope.message = err.error_description;
+      });
     };
 
 }]);

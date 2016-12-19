@@ -11,6 +11,8 @@ app.controller('signupController', ['$scope', '$location', '$timeout', 'authServ
     };
 
     $scope.signUp = function () {
+      $scope.$broadcast('show-errors-check-validity');
+      if ($scope.signupForm.$invalid) { return; }
 
         authService.saveRegistration($scope.registration).then(function (response) {
 

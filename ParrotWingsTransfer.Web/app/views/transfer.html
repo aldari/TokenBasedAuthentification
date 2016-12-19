@@ -1,11 +1,11 @@
 ﻿<h1>Transfer</h1>
 
-<form name="transferForm" novalidate>
+<form name="transferForm" role="form" novalidate>
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
                 <label>Full User Name of Correspondent</label>
-                <pre>Model: {{selectedUser | json}}</pre>
+                <!-- <pre>Model: {{selectedUser | json}}</pre> -->
                 <input type="text" ng-model="selectedUser" placeholder="User Full Name"
                        typeahead-input-formatter="formatUser($model)"
                        uib-typeahead="user as user.name for user in getUser($viewValue)"
