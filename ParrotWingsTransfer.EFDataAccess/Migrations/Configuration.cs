@@ -7,13 +7,12 @@ using ParrotWingsTransfer.EFDataAccess.Transfer.Domain;
 
 namespace ParrotWingsTransfer.EFDataAccess.Migrations
 {
-
     internal sealed class Configuration : DbMigrationsConfiguration<AuthContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ParrotWingsTransfer.API.Models.AuthContext";
+            ContextKey = "ParrotWingsTransfer.EFDataAccess.AuthContext";
         }
 
         protected override void Seed(AuthContext context)
@@ -43,17 +42,11 @@ namespace ParrotWingsTransfer.EFDataAccess.Migrations
                     {
                         Email = item.email,
                         UserName = item.email,
-                        Fullname = item.name
+                        Fullname = item.name,
+                        Account = new Account {Id = Guid.NewGuid()}
                     };
-                    user.Account = new Account { Id = Guid.NewGuid() };
                     manager.Create(user, "password");
                 }
-            }
-
-            if (!context.Accounts.Any(z => z.Id == AuthContext.SystemAccount))
-            {
-                context.Accounts.Add(new Account { Id = AuthContext.SystemAccount });
-                context.SaveChanges();
             }
         }
     }

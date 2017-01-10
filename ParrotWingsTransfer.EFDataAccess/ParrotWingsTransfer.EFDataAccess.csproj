@@ -88,11 +88,12 @@
     <Compile Include="ApplicationUserManager.cs" />
     <Compile Include="AuthContext.cs" />
     <Compile Include="AuthRepository.cs" />
+    <Compile Include="ContextDbInitializer.cs" />
     <Compile Include="Core\EFCommandHandlerBase.cs" />
     <Compile Include="Core\EFQueryBase.cs" />
-    <Compile Include="Migrations\201612140616159_init.cs" />
-    <Compile Include="Migrations\201612140616159_init.Designer.cs">
-      <DependentUpon>201612140616159_init.cs</DependentUpon>
+    <Compile Include="Migrations\201701081529181_Init.cs" />
+    <Compile Include="Migrations\201701081529181_Init.Designer.cs">
+      <DependentUpon>201701081529181_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,15 +113,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612140616159_init.resx">
-      <DependentUpon>201612140616159_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701081529181_Init.resx">
+      <DependentUpon>201701081529181_Init.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Query.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

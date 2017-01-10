@@ -13,7 +13,7 @@ namespace ParrotWingsTransfer.Test
         [Test]
         public void Test1()
         {
-            using (var context = new AuthContext("name=AngularJSAuth"))
+            using (var context = new AuthContext("name=ParrotWingsTransferTest"))
             {
                 var user = context.Users.Include(x => x.Account).First(x=>x.Fullname == "Stephen Curry");
                 var destinationUser = context.Users.Include(x=>x.Account).First(x => x.Fullname == "James Harden");
@@ -31,7 +31,7 @@ namespace ParrotWingsTransfer.Test
         [Test]
         public void Test2()
         {
-            using (var context = new AuthContext("name=AngularJSAuth"))
+            using (var context = new AuthContext("name=ParrotWingsTransferTest"))
             {
                 var user = context.Users.Include(x => x.Account).First(x => x.Fullname == "Stephen Curry");
                 var destinationUser = context.Users.Include(x => x.Account).First(x => x.Fullname == "James Harden");

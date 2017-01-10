@@ -13,20 +13,20 @@ namespace ParrotWingsTransfer.API.Infrastructure
         public override void Load()
         {
             // Infrastructure
-            Bind<IQueryFactory>().ToMethod(t => new QueryFactory(x => Container.Current.Resolve(x))).InTransientScope();
-            Bind<ICommandsFactory>()
-                .ToMethod(t => new CommandFactory(x => (object[])Container.Current.ResolveAll(x)))
-                .InTransientScope();
+//            Bind<IQueryFactory>().ToMethod(t => new QueryFactory(x => Container.Current.Resolve(x))).InThreadScope();
+//            Bind<ICommandsFactory>()
+//                .ToMethod(t => new CommandFactory(x => (object[])Container.Current.ResolveAll(x)))
+//                .InThreadScope();
 
             // DbContext
-            Bind<AuthContext>().ToSelf().WithConstructorArgument("connectionString", "name=AngularJSAuth");
+            Bind<AuthContext>().ToSelf().InThreadScope().WithConstructorArgument("connectionString", "name=ParrotWingsTransfer");
 
             // Queries
-            Bind<IGetTemplateMatchNamesQuery>().To<GetTemplateMatchNamesQuery>().InTransientScope();
-            Bind<IGetHistoryItemsQuery>().To<GetHistoryItemsQuery>().InTransientScope();
+            Bind<IGetTemplateMatchNamesQuery>().To<GetTemplateMatchNamesQuery>().InThreadScope();
+            Bind<IGetHistoryItemsQuery>().To<GetHistoryItemsQuery>().InThreadScope();
 
             // Commands
-            Bind<ICommandHandler<AddTransactionCommand>>().To<AddTransactionCommandHandler>().InTransientScope();
+            Bind<ICommandHandler<AddTransactionCommand>>().To<AddTransactionCommandHandler>().InThreadScope();
             
             //Bind<ProcessArchiveService>().ToSelf().InTransientScope();
         }

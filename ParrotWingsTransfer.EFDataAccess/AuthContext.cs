@@ -7,14 +7,10 @@ namespace ParrotWingsTransfer.EFDataAccess
 {
     public class AuthContext : IdentityDbContext<ApplicationUser>
     {
-        public AuthContext()
-            : base("name=AngularJSAuth")
-        {
-        }
-
-        public AuthContext(string connectionString= "name=AngularJSAuth")
+        public AuthContext(string connectionString= "name=ParrotWingsTransfer")
             : base(connectionString)
         {
+            Database.SetInitializer(new ContextDbInitializer());
         }
 
         public DbSet<Account> Accounts { get; set; }

@@ -26,7 +26,7 @@ namespace ParrotWingsTransfer.Test
             var items2 = query.Execute(AccountId.ToString(), Username, AmountMax, AmountMin, DateMax, DateMin);
 
             foreach (var item in items2)
-                Console.WriteLine($"{item.Id} {item.Dateaccount} {item.Amount} {item.Corr}");
+                Console.WriteLine($"{item.Id} {item.Dateaccount} {item.Amount} {item.Correspondent}");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace ParrotWingsTransfer.EFDataAccess.Transfer.Command
                     .Sum(x => (x.DebitAccount.Id == user.Account.Id) ? x.Amount : -x.Amount);
 
             if (sum - command.Amount >=0)
-                DbContext.Transactions.Add(new AccountTransaction { TransDate = DateTime.Now, Amount = 100, CreditAccount = user.Account, DebitAccount = destinationUser.Account });
+                DbContext.Transactions.Add(new AccountTransaction { TransDate = DateTime.Now, Amount = command.Amount, CreditAccount = user.Account, DebitAccount = destinationUser.Account });
 
             DbContext.SaveChanges();
         }

@@ -17,7 +17,7 @@ namespace ParrotWingsTransfer.EFDataAccess
 
         public AuthRepository()
         {
-            _ctx = new AuthContext("name=AngularJSAuth");
+            _ctx = new AuthContext("name=ParrotWingsTransfer");
             _userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(_ctx));
         }
 
