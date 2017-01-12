@@ -15,9 +15,9 @@ namespace ParrotWingsTransfer.EFDataAccess
 
         private readonly ApplicationUserManager _userManager;
 
-        public AuthRepository()
+        public AuthRepository(AuthContext authContext)
         {
-            _ctx = new AuthContext("name=ParrotWingsTransfer");
+            _ctx = authContext;
             _userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(_ctx));
         }
 
@@ -31,7 +31,7 @@ namespace ParrotWingsTransfer.EFDataAccess
                 Account = new Account { Id =  Guid.NewGuid()}
             };
             var result = await _userManager.CreateAsync(user, userModel.Password);
-
+            
             _ctx.Transactions.Add(new AccountTransaction
             {
                 Amount = 500,
@@ -58,7 +58,6 @@ namespace ParrotWingsTransfer.EFDataAccess
 
         public void Dispose()
         {
-            _ctx.Dispose();
             _userManager.Dispose();
         }
     }

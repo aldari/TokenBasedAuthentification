@@ -13,6 +13,12 @@ namespace ParrotWingsTransfer.EFDataAccess
             Database.SetInitializer(new ContextDbInitializer());
         }
 
+        // for update-database call purpose
+        public AuthContext(): base("name=ParrotWingsTransfer")
+        {
+            Database.SetInitializer(new ContextDbInitializer());
+        }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountTransaction> Transactions { get; set; }
 

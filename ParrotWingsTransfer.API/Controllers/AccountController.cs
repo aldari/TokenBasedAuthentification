@@ -13,7 +13,7 @@ namespace ParrotWingsTransfer.API.Controllers
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+            _repo = new AuthRepository(new AuthContext());
         }
 
         // POST api/Account/Register

@@ -19,7 +19,7 @@ namespace ParrotWingsTransfer.API.Provider
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
+            using (AuthRepository _repo = new AuthRepository(new AuthContext()))
             {
                 var user = await _repo.FindUser(context.UserName, context.Password);
 
