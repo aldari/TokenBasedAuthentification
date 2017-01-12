@@ -97,5 +97,37 @@ namespace ParrotWingsTransfer.Test
             Assert.AreEqual(480, balance1);
             Assert.AreEqual(520, balance2);
         }
+
+        [Test]
+        public async Task Transfer_UserUseNegativeAmount_CauseException()
+        {
+            var userModel = new UserModel
+            {
+                Email = "eldar@gmail.com",
+                Password = "123456",
+                ConfirmPassword = "123456",
+                UserName = "Eldar"
+            };
+            await _repo.RegisterUser(userModel);
+            var user1 = _context.Users.Include(x => x.Account).Single(x => x.Email == "eldar@gmail.com");
+
+            var userModel2 = new UserModel
+            {
+                Email = "michele@gmail.com",
+                Password = "123456",
+                ConfirmPassword = "123456",
+                UserName = "Michele"
+            };
+            await _repo.RegisterUser(userModel2);
+            var user2 = _context.Users.Include(x => x.Account).Single(x => x.Email == "michele@gmail.com");
+            _context.SaveChanges();
+
+
+            var cmd = new AddTransactionCommandHandler(_context);
+            var command = new AddTransactionCommand(user1.Id, user2.Id, -50);
+
+
+            Assert.Throws<ArgumentException>(() => cmd.Execute(command));
+        }
     }
 }
