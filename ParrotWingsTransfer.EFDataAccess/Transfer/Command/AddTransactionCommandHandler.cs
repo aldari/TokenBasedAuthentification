@@ -22,6 +22,9 @@ namespace ParrotWingsTransfer.EFDataAccess.Transfer.Command
             if (user == null || destinationUser == null)
                 throw new ArgumentException("Wrong User");
 
+            if (command.Amount < 0)
+                throw new ArgumentException("Negative Amount");
+
             var sum =
                 DbContext.Transactions.Where(x => x.CreditAccount.Id == user.Account.Id || x.DebitAccount.Id == user.Account.Id)
                     .Sum(x => (x.DebitAccount.Id == user.Account.Id) ? x.Amount : -x.Amount);

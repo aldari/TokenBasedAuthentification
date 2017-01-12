@@ -101,6 +101,7 @@
     <Compile Include="Transfer\Domain\Account.cs" />
     <Compile Include="Transfer\Domain\AccountTransaction.cs" />
     <Compile Include="Transfer\Domain\ApplicationUser.cs" />
+    <Compile Include="Transfer\Query\GetBalanceQuery.cs" />
     <Compile Include="Transfer\Query\GetHistoryItemsQuery.cs" />
     <Compile Include="Transfer\Query\GetTemplateMatchNamesQuery.cs" />
     <Compile Include="UserModel.cs" />
@@ -113,6 +114,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +124,9 @@
       <DependentUpon>201701081529181_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Query.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BalanceQuery.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

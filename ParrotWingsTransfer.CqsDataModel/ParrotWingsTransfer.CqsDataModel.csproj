@@ -68,6 +68,7 @@
     <Compile Include="Transfer\Command\AddTransactionCommand.cs" />
     <Compile Include="Transfer\Dto\AppUserDto.cs" />
     <Compile Include="Transfer\Dto\HistoryItemDto.cs" />
+    <Compile Include="Transfer\Query\IGetBalanceQuery.cs" />
     <Compile Include="Transfer\Query\IGetHistoryItemsQuery.cs" />
     <Compile Include="Transfer\Query\IGetTemplateMatchNamesQuery.cs" />
   </ItemGroup>
