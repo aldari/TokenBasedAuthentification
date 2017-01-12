@@ -9,41 +9,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Home</a>
-            </div>
-            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
-                <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/transfer">Transfer</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/history">History</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
-                </ul>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a  data-ng-hide="authentication.isAuth" class="navbar-brand" href="#/login">Parrot Wing Transfer</a>
+          <a  data-ng-hide="!authentication.isAuth" class="navbar-brand" href="#/transfer">Parrot Wing Transfer</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li data-ng-hide="!authentication.isAuth"><a href="#/transfer">Transfer</a></li>
+              <li data-ng-hide="!authentication.isAuth"><a href="#/history">History</a></li>
+          </ul>
+          <div class="navbar-right">
+            <p class="navbar-text" data-ng-hide="!authentication.isAuth">Welcome {{authentication.userName}}</p>
+            <p class="navbar-text" data-ng-hide="!authentication.isAuth">Balance: {{balance}}</p>
+            <ul class="nav navbar-nav ">
+                <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+            </ul>
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div data-ng-view="" class="col-md-12">
             </div>
         </div>
     </div>
-<div class="container">
-    <div class="row">
-        <div data-ng-view="" class="col-md-12">
-        </div>
-    </div>
-</div>
-    <hr />
+
     <div id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="text-muted">Created by Taiseer Joudeh. Twitter: <a target="_blank" href="http://twitter.com/tjoudeh">@tjoudeh</a></p>
+                    <p class="text-muted"></p>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-muted">Taiseer Joudeh Blog: <a target="_blank" href="http://bitoftech.net">bitoftech.net</a></p>
+                    <p class="text-muted"></p>
                 </div>
             </div>
         </div>
@@ -59,6 +69,8 @@
     <script src="scripts/angular-local-storage.min.js"></script>
     <script src="scripts/loading-bar.min.js"></script>
     <script src="scripts/showErrors.js"></script>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
     <!-- Load app main script -->
     <script src="app/app.js"></script>
     <!-- Load services -->
