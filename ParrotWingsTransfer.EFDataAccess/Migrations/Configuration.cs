@@ -9,7 +9,7 @@ using ParrotWingsTransfer.EFDataAccess.Transfer.Domain;
 
 namespace ParrotWingsTransfer.EFDataAccess.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<AuthContext>
+    public sealed class Configuration : DbMigrationsConfiguration<AuthContext>
     {
         public Configuration()
         {

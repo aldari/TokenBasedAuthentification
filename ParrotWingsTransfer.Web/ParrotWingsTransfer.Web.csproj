@@ -61,6 +61,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\fonts\fontawesome-webfont.eot" />
+    <Content Include="content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="content\fonts\fontawesome-webfont.woff" />
+    <Content Include="content\fonts\FontAwesome.otf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\historyController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -77,22 +85,32 @@
     <Content Include="app\controllers\transferController.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\historyService.js" />
+    <Content Include="app\views\history.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\transfer.html" />
+    <Content Include="content\css\bootstrap.min.css" />
+    <Content Include="content\css\font-awesome.min.css" />
+    <Content Include="content\css\loading-bar.css" />
+    <Content Include="content\css\loading-bar.min.css" />
+    <Content Include="content\css\site.css" />
+    <Content Include="content\css\social-buttons.css" />
+    <Content Include="content\fonts\fontawesome-webfont.svg" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-3.1.1.min.js" />
     <Content Include="scripts\loading-bar.min.js" />
+    <Content Include="scripts\showErrors.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\css\" />
-    <Folder Include="content\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
